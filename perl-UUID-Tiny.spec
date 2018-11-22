@@ -4,7 +4,7 @@
 #
 Name     : perl-UUID-Tiny
 Version  : 1.04
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Summary  : Pure Perl UUID Support With Functional Interface
@@ -66,7 +66,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/UUID/Tiny.pm
+/usr/lib/perl5/vendor_perl/5.28.0/UUID/Tiny.pm
 
 %files dev
 %defattr(-,root,root,-)
