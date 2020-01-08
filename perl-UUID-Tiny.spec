@@ -4,12 +4,13 @@
 #
 Name     : perl-UUID-Tiny
 Version  : 1.04
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Summary  : Pure Perl UUID Support With Functional Interface
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-UUID-Tiny-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -24,19 +25,30 @@ This is a Pure Perl module for the creation of UUIDs:
 Summary: dev components for the perl-UUID-Tiny package.
 Group: Development
 Provides: perl-UUID-Tiny-devel = %{version}-%{release}
+Requires: perl-UUID-Tiny = %{version}-%{release}
 
 %description dev
 dev components for the perl-UUID-Tiny package.
 
 
+%package perl
+Summary: perl components for the perl-UUID-Tiny package.
+Group: Default
+Requires: perl-UUID-Tiny = %{version}-%{release}
+
+%description perl
+perl components for the perl-UUID-Tiny package.
+
+
 %prep
 %setup -q -n UUID-Tiny-1.04
+cd %{_builddir}/UUID-Tiny-1.04
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -46,7 +58,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -66,8 +78,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/UUID/Tiny.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/UUID::Tiny.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/UUID/Tiny.pm
