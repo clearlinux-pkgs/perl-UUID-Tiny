@@ -7,7 +7,7 @@
 #
 Name     : perl-UUID-Tiny
 Version  : 1.04
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/C/CA/CAUGUSTIN/UUID-Tiny-1.04.tar.gz
 Summary  : Pure Perl UUID Support With Functional Interface
